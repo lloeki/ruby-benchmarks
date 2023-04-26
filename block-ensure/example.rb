@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-require 'benchmark'
+require 'benchmark/ips'
 
 class Example
   def initialize
@@ -20,10 +21,15 @@ class Example
   end
 end
 
-Benchmark.bm(12) do |x|
+Benchmark.ips do |x|
+  x.time = 5
+  x.warmup = 0.5
+
   ex = Example.new
   n = 10_000_000
 
   x.report('block') { n.times { ex.using_block } }
   x.report('ensure') { n.times { ex.using_ensure } }
+
+  x.compare!
 end

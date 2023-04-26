@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    benchmark-ips (2.12.0)
+
+PLATFORMS
+  arm64-darwin-22
+
+DEPENDENCIES
+  benchmark-ips
+
+BUNDLED WITH
+   2.3.7
